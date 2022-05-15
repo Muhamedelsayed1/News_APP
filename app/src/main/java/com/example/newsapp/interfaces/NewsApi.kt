@@ -1,7 +1,6 @@
 package com.example.newsapp.interfaces
 
-import androidx.room.PrimaryKey
-import com.example.newsapp.NewsResponse
+import com.example.newsapp.models.NewsResponse
 import com.example.newsapp.util.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
