@@ -10,8 +10,10 @@ import com.example.newsapp.ui.NewsViewModel
 class ArticleNewsFragment : Fragment(R.layout.fragment_article) {
 
     lateinit var viewModel: NewsViewModel
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel =(activity as NewsActivity).viewModel
+        viewModel = (activity as NewsActivity).viewModel
     }
+
 }
