@@ -20,7 +20,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
     lateinit var viewModel: NewsViewModel
     lateinit var newsAdapter: NewsAdapter
     lateinit var binding: FragmentBreakingNewsBinding
-    val TAG = "BreakingNewsFragment"
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,6 +34,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
         viewModel = (activity as NewsActivity).viewModel
         setUpRecyclerView()
 
+        Log.i("xxx", "onViewCreated: eeeeeeeeee")
 
         viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
@@ -41,13 +42,13 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                     hideProgressBar()
                     response.data?.let { newsResponse ->
                         newsAdapter.differ.submitList(newsResponse.articles)
-                        Log.i("mm", "onViewCreated: "+response)
+                        Log.i("xxx", "onViewCreated: "+newsResponse.articles)
                     }
                 }
                 is Resources.Error ->{
                     hideProgressBar()
                     response.message?.let { message->
-                        Log.e(TAG,"ops an error happen $message")
+                        Log.e("xxx","ops an error happen $message")
                     }
                 }
                 is Resources.Loading->{
